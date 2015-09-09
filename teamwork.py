@@ -179,7 +179,10 @@ print "*" * len(title)
 print task['description']
 print "---"
 print "Created by %s %s" % (task['creator-firstname'], task['creator-lastname'])
-print "Assigned to %s " % (task['responsible-party-summary'])
+if 'responsible-party-summary' in task:
+	print "Assigned to %s " % (task['responsible-party-summary'])
+else:
+	print "Assigned to nobody yet"
 if task['estimated-minutes']:
 	print "Time estimate: %2.1fhrs" % (task['estimated-minutes']/60)
 print "---"
