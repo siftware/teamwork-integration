@@ -205,7 +205,7 @@ if not found:
 	remote_branches = repo.remote().fetch()
 	for branch in remote_branches:
 		if branch.name.find(str(taskid)) != NOTFOUND:
-			git.checkout(branch, b=branch.name)
+			git.checkout(branch, b=branch.name[7:])
 			print "Checking out remote branch %s" % branch.name
 			found = True
 			break
